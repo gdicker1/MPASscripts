@@ -1,0 +1,19 @@
+#!/bin/tcsh
+# LSF batch script to run an MPI application
+#
+#PBS -A NTDD0002
+#PBS -l walltime=@HOURS:00:00
+#PBS -l select=@NNODES:ncpus=@NCPUS:mpiprocs=@MPIPROCS
+#PBS -N MPAS
+#PBS -o @OUTFILE.out
+#PBS -e @OUTFILE.err
+#PBS -q regular
+module purge
+module load ncarenv/1.2
+module load intel/17.0.1
+module load mpt/2.18
+module load ncarcompilers/0.4.1
+module load pio/2.3.1
+module list
+
+mpiexec_mpt dplace -s 1 ./atmosphere_model
