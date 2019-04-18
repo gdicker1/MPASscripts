@@ -56,9 +56,13 @@ def launchJob(fName, path):
     currDir = os.getcwd()
     os.chdir(path)  # Go into benchmark folder for given resolution
     call(['chmod', '755', fName])  # Ensure the script is executable
+    print "Launching interactive shell"
     call(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL'])
+    print "Interactive shell launched, submitting job"
     call(['bsub', '<', fName])  # Launch job
+    print "Job submitted"
     call(['exit'])  # Close the interactive shell
+    print "Interactive shell closed"
     os.chdir(currDir)  # Go back to main benchmark folder
 
 
