@@ -61,13 +61,10 @@ def launchJob(fName, path):
     Popen(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL'])
     sleep(20)  # Wait because the interactive shell takes a minute to launch
     print "Interactive shell launched, submitting job"
-    print fName
-    print os.path.exists(fName)
-    call(['cat', fName])
-    with open(fName) as myinput
-    call(['bsub'], stdin=myinput)  # Launch job
+    with open(fName) as myinput:
+        call(['bsub'], stdin=myinput)  # Launch job
     print "Job submitted"
-    call(['exit'])  # Close the interactive shell
+    #call(['exit'])  # Close the interactive shell
     print "Interactive shell closed"
     os.chdir(currDir)  # Go back to main benchmark folder
 
