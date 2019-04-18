@@ -99,7 +99,7 @@ if __name__ == '__main__':
         raise SystemExit
 
     if mode == 'single':
-        path = os.path.join(os.getcwd(), '{:s}_benchmark'.format(res))
+        path = os.path.join(os.getcwd(), 'benchmark{:s}'.format(res))
         if not os.path.exists(path):
             print("resolution benchmarking directory doesn't exist")
             raise SystemExit
