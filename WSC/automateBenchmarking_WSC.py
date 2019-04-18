@@ -30,21 +30,21 @@ def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, pat
         with open(newFile, 'w') as fileOut:
             for line in fileIn:
                 theLine = line.replace(replaceTokens[0],
-                                       w_hours)
+                                       str(w_hours))
                 theLine = theLine.replace(replaceTokens[1],
                                           outFile)
-                theLine = theLine.repalce(replaceTokens[2],
+                theLine = theLine.replace(replaceTokens[2],
                                           parpath)
                 theLine = theLine.replace(replaceTokens[3],
                                           path)
                 theLine = theLine.replace(replaceTokens[4],
-                                          nodes)
+                                          str(nodes))
                 theLine = theLine.replace(replaceTokens[5],
-                                          mpiranks)
+                                          str(mpiranks))
                 theLine = theLine.replace(replaceTokens[6],
-                                          cpurs)
+                                          str(cpurs))
                 theLine = theLine.replace(replaceTokens[7],
-                                          gpurs)
+                                          str(gpurs))
                 fileOut.write(theLine)
 
     return newFile
