@@ -59,13 +59,13 @@ def launchJob(fName, path):
     call(['chmod', '755', fName])  # Ensure the script is executable
     print "Launching interactive shell"
     Popen(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL'])
-    sleep(20)
+    sleep(20)  # Wait because the interactive shell takes a minute to launch
     print "Interactive shell launched, submitting job"
     print fName
     print os.path.exists(fName)
     call(['cat', fName])
-    return
-    call(['bsub', '<', fName])  # Launch job
+    with open(fName) as myinput
+    call(['bsub'], stdin=myinput)  # Launch job
     print "Job submitted"
     call(['exit'])  # Close the interactive shell
     print "Interactive shell closed"
