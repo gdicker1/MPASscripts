@@ -4,7 +4,7 @@
 import os
 import string
 import argparse
-from subprocess import call, Popen
+from subprocess import call, Popen, wait
 from time import sleep
 
 # Global lists
@@ -58,8 +58,9 @@ def launchJob(fName, path):
     os.chdir(path)  # Go into benchmark folder for given resolution
     call(['chmod', '755', fName])  # Ensure the script is executable
     print "Launching interactive shell"
-    Popen(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL'])
-    sleep(20)  # Wait because the interactive shell takes a minute to launch
+    proc = Popen(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL', universal_newlines=True])
+    proc.wait(30)
+    # sleep(20)  # Wait because the interactive shell takes a minute to launch
     print "Interactive shell launched, submitting job"
     print fName
     print os.path.exists(fName)
