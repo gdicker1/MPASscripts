@@ -29,6 +29,7 @@ matches = re.findall("Timing for integration step: .*s", text)
 
 # Get a list of the times (calling map returns a map)
 times = list(map(extractTime, matches))
+times = times[3:]
 
 print("Integration Times:")
 print(times)
