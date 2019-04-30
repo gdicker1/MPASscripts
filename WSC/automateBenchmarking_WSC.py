@@ -78,10 +78,10 @@ def launchJob(fName, path, location):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', help='whether to do a single run, weak scaling, or strong scaling', type=str,
-                        default='single')
-    parser.add_argument('location', help='which cluster this is running on {WSC, cheyenne, casper}', type=str,
-                        default='WSC')
+    parser.add_argument(
+        'mode', help='whether to do a single run, weak scaling, or strong scaling', type=str)
+    parser.add_argument(
+        'location', help='which cluster this is running on {WSC, cheyenne, casper}', type=str)
     parser.add_argument('-n', '--nnodes', help='number of resources (nodes) to run on', type=int,
                         default=1)
     parser.add_argument('-t', '--tasks_per_rs', help='number of MPI ranks/resource(node)', type=int,
