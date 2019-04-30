@@ -1,0 +1,369 @@
+----------------------------------------------------------------------
+Beginning MPAS-atmosphere Output Log File for task       0 of      72
+    Opened at 2019/03/26 16:16:17
+----------------------------------------------------------------------
+
+ 
+ Using default single-precision reals
+ 
+ Reading namelist from file namelist.atmosphere
+ Reading streams configuration from file streams.atmosphere
+ Found mesh stream with filename template x1.163842.init.nc
+ Using io_type NetCDF-4/HDF5 for mesh stream
+  ** Attempting to bootstrap MPAS framework using stream: input
+ Bootstrapping framework with mesh fields from input file 'x1.163842.init.nc'
+  * Requested field u10 is deactivated due to packages, or is a scratch variable.
+  * Requested field v10 is deactivated due to packages, or is a scratch variable.
+  * Requested field q2 is deactivated due to packages, or is a scratch variable.
+  * Requested field t2m is deactivated due to packages, or is a scratch variable.
+  * Requested field rainprod is deactivated due to packages, or is a scratch variable.
+  * Requested field evapprod is deactivated due to packages, or is a scratch variable.
+  * Requested field re_cloud is deactivated due to packages, or is a scratch variable.
+  * Requested field re_ice is deactivated due to packages, or is a scratch variable.
+  * Requested field re_snow is deactivated due to packages, or is a scratch variable.
+  * Requested field nt_c is deactivated due to packages, or is a scratch variable.
+  * Requested field mu_c is deactivated due to packages, or is a scratch variable.
+  * Requested field refl10cm_max is deactivated due to packages, or is a scratch variable.
+  * Requested field i_rainnc is deactivated due to packages, or is a scratch variable.
+  * Requested field rainncv is deactivated due to packages, or is a scratch variable.
+  * Requested field rainnc is deactivated due to packages, or is a scratch variable.
+  * Requested field snownc is deactivated due to packages, or is a scratch variable.
+  * Requested field graupelnc is deactivated due to packages, or is a scratch variable.
+  * Requested field i_rainc is deactivated due to packages, or is a scratch variable.
+  * Requested field cuprec is deactivated due to packages, or is a scratch variable.
+  * Requested field rainc is deactivated due to packages, or is a scratch variable.
+  * Requested field raincv is deactivated due to packages, or is a scratch variable.
+  * Requested field nca is deactivated due to packages, or is a scratch variable.
+  * Requested field cubot is deactivated due to packages, or is a scratch variable.
+  * Requested field cutop is deactivated due to packages, or is a scratch variable.
+  * Requested field w0avg is deactivated due to packages, or is a scratch variable.
+  * Requested field qcg is deactivated due to packages, or is a scratch variable.
+  * Requested field sh3d is deactivated due to packages, or is a scratch variable.
+  * Requested field qke is deactivated due to packages, or is a scratch variable.
+  * Requested field qke_adv is deactivated due to packages, or is a scratch variable.
+  * Requested field cov is deactivated due to packages, or is a scratch variable.
+  * Requested field qsq is deactivated due to packages, or is a scratch variable.
+  * Requested field tsq is deactivated due to packages, or is a scratch variable.
+  * Requested field tke_pbl is deactivated due to packages, or is a scratch variable.
+  * Requested field wstar is deactivated due to packages, or is a scratch variable.
+  * Requested field delta is deactivated due to packages, or is a scratch variable.
+  * Requested field el_pbl is deactivated due to packages, or is a scratch variable.
+  * Requested field ch is deactivated due to packages, or is a scratch variable.
+  * Requested field kpbl is deactivated due to packages, or is a scratch variable.
+  * Requested field hpbl is deactivated due to packages, or is a scratch variable.
+  * Requested field hfx is deactivated due to packages, or is a scratch variable.
+  * Requested field mavail is deactivated due to packages, or is a scratch variable.
+  * Requested field mol is deactivated due to packages, or is a scratch variable.
+  * Requested field qfx is deactivated due to packages, or is a scratch variable.
+  * Requested field qsfc is deactivated due to packages, or is a scratch variable.
+  * Requested field ust is deactivated due to packages, or is a scratch variable.
+  * Requested field ustm is deactivated due to packages, or is a scratch variable.
+  * Requested field zol is deactivated due to packages, or is a scratch variable.
+  * Requested field br is deactivated due to packages, or is a scratch variable.
+  * Requested field cd is deactivated due to packages, or is a scratch variable.
+  * Requested field cda is deactivated due to packages, or is a scratch variable.
+  * Requested field chs is deactivated due to packages, or is a scratch variable.
+  * Requested field chs2 is deactivated due to packages, or is a scratch variable.
+  * Requested field cqs2 is deactivated due to packages, or is a scratch variable.
+  * Requested field ck is deactivated due to packages, or is a scratch variable.
+  * Requested field cka is deactivated due to packages, or is a scratch variable.
+  * Requested field cpm is deactivated due to packages, or is a scratch variable.
+  * Requested field flhc is deactivated due to packages, or is a scratch variable.
+  * Requested field flqc is deactivated due to packages, or is a scratch variable.
+  * Requested field gz1oz0 is deactivated due to packages, or is a scratch variable.
+  * Requested field lh is deactivated due to packages, or is a scratch variable.
+  * Requested field psim is deactivated due to packages, or is a scratch variable.
+  * Requested field psih is deactivated due to packages, or is a scratch variable.
+  * Requested field qgh is deactivated due to packages, or is a scratch variable.
+  * Requested field regime is deactivated due to packages, or is a scratch variable.
+  * Requested field rmol is deactivated due to packages, or is a scratch variable.
+  * Requested field wspd is deactivated due to packages, or is a scratch variable.
+  * Requested field fh is deactivated due to packages, or is a scratch variable.
+  * Requested field fm is deactivated due to packages, or is a scratch variable.
+  * Requested field u10 is deactivated due to packages, or is a scratch variable.
+  * Requested field v10 is deactivated due to packages, or is a scratch variable.
+  * Requested field q2 is deactivated due to packages, or is a scratch variable.
+  * Requested field t2m is deactivated due to packages, or is a scratch variable.
+  * Requested field th2m is deactivated due to packages, or is a scratch variable.
+  * Requested field k22_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field kbcon_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field ktop_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field ktop_deep is deactivated due to packages, or is a scratch variable.
+  * Requested field xmb_total is deactivated due to packages, or is a scratch variable.
+  * Requested field xmb_shallow is deactivated due to packages, or is a scratch variable.
+  * Requested field qc_cu is deactivated due to packages, or is a scratch variable.
+  * Requested field qi_cu is deactivated due to packages, or is a scratch variable.
+  * Requested field rthcuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqvcuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqccuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqicuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqrcuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqscuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqvdynten is deactivated due to packages, or is a scratch variable.
+  * Requested field rthdynten is deactivated due to packages, or is a scratch variable.
+  * Requested field rucuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rvcuten is deactivated due to packages, or is a scratch variable.
+  * Requested field rublten is deactivated due to packages, or is a scratch variable.
+  * Requested field rvblten is deactivated due to packages, or is a scratch variable.
+  * Requested field rthblten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqvblten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqcblten is deactivated due to packages, or is a scratch variable.
+  * Requested field rqiblten is deactivated due to packages, or is a scratch variable.
+  * Requested field rniblten is deactivated due to packages, or is a scratch variable.
+  * Requested field scalars_amb is deactivated due to packages, or is a scratch variable.
+  * Requested field u_amb is deactivated due to packages, or is a scratch variable.
+  * Requested field rho_amb is deactivated due to packages, or is a scratch variable.
+  * Requested field theta_amb is deactivated due to packages, or is a scratch variable.
+ 
+Parsing run-time I/O configuration from streams.atmosphere ...
+ 
+ -----  found immutable stream "input" in streams.atmosphere  -----
+         filename template:  x1.163842.init.nc
+         filename interval:  none
+         I/O type:           NetCDF-4/HDF5
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         real precision:     8 bytes
+         input alarm:        initial_only
+ 
+ -----  found immutable stream "restart" in streams.atmosphere  -----
+         filename template:  restart.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  none
+         direction:          input, output
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+         output alarm:       none
+ 
+ -----  found immutable stream "iau" in streams.atmosphere  -----
+         filename template:  x1.163842.AmB.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        initial_only
+         package:            iau
+
+ 
+ -----  found stream "output" in streams.atmosphere  -----
+         filename template:  history.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  none
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       none
+  * Requested field i_rainnc is deactivated due to packages, or is a scratch variable.
+  * Requested field rainnc is deactivated due to packages, or is a scratch variable.
+  * Requested field cuprec is deactivated due to packages, or is a scratch variable.
+  * Requested field i_rainc is deactivated due to packages, or is a scratch variable.
+  * Requested field rainc is deactivated due to packages, or is a scratch variable.
+  * Requested field kpbl is deactivated due to packages, or is a scratch variable.
+  * Requested field hpbl is deactivated due to packages, or is a scratch variable.
+  * Requested field hfx is deactivated due to packages, or is a scratch variable.
+  * Requested field qfx is deactivated due to packages, or is a scratch variable.
+  * Requested field cd is deactivated due to packages, or is a scratch variable.
+  * Requested field cda is deactivated due to packages, or is a scratch variable.
+  * Requested field ck is deactivated due to packages, or is a scratch variable.
+  * Requested field cka is deactivated due to packages, or is a scratch variable.
+  * Requested field lh is deactivated due to packages, or is a scratch variable.
+  * Requested field u10 is deactivated due to packages, or is a scratch variable.
+  * Requested field v10 is deactivated due to packages, or is a scratch variable.
+  * Requested field q2 is deactivated due to packages, or is a scratch variable.
+  * Requested field t2m is deactivated due to packages, or is a scratch variable.
+  * Requested field th2m is deactivated due to packages, or is a scratch variable.
+ 
+ -----  found stream "diagnostics" in streams.atmosphere  -----
+         filename template:  diag.$Y-$M-$D_$h.$m.$s.nc
+         filename interval:  none
+         direction:          output
+         reference time:     initial_time
+         record interval:    -
+         output alarm:       none
+  * Requested field rainc is deactivated due to packages, or is a scratch variable.
+  * Requested field rainnc is deactivated due to packages, or is a scratch variable.
+  * Requested field refl10cm_max is deactivated due to packages, or is a scratch variable.
+  * Requested field refl10cm_1km is deactivated due to packages, or is a scratch variable.
+  * Requested field refl10cm_1km_max is deactivated due to packages, or is a scratch variable.
+  * Requested field u10 is deactivated due to packages, or is a scratch variable.
+  * Requested field v10 is deactivated due to packages, or is a scratch variable.
+  * Requested field q2 is deactivated due to packages, or is a scratch variable.
+  * Requested field t2m is deactivated due to packages, or is a scratch variable.
+  * Requested field th2m is deactivated due to packages, or is a scratch variable.
+ 
+ -----  found stream "surface" in streams.atmosphere  -----
+         filename template:  x1.163842.sfc_update.nc
+         filename interval:  none
+         direction:          input
+         reference time:     initial_time
+         record interval:    -
+         input alarm:        none
+ 
+ ----- done parsing run-time I/O from streams.atmosphere -----
+
+ 
+ 
+ Reading dimensions from input streams ...
+ 
+ ----- reading dimensions from stream 'input' using file x1.163842.init.nc
+        nVertLevels = 56
+        nCells = 163842
+        nEdges = 491520
+        nVertices = 327680
+        TWO = 2
+        maxEdges = 10
+        maxEdges2 = 20
+        R3 = 3
+        vertexDegree = 3
+        nVertLevelsP1 = 57
+        FIFTEEN = 15
+        nMonths = 12
+        nSoilLevels = 4
+ 
+   *** unable to open input file restart.2010-10-23_00.00.00.nc for stream 'restart'
+ 
+   *** unable to open input file x1.163842.AmB.2010-10-23_00.00.00.nc for stream 'iau'
+ 
+   *** unable to open input file x1.163842.sfc_update.nc for stream 'surface'
+ 
+ ----- done reading dimensions from input streams -----
+ 
+ 
+ Processing decomposed dimensions ...
+ 
+  ----- done processing decomposed dimensions -----
+ 
+ 
+ Assigning remaining dimensions from definitions in Registry.xml ...
+        THREE = 3
+        TWENTYONE = 21
+        nLags = 140 (input_soil_temperature_lag)
+        nOznLevels = 59 (noznlev)
+        nAerLevels = 29 (naerlev)
+        cam_dim1 = 4 (camdim1)
+        nVertLevelsP2 = 58
+        nIsoLevelsT = 5
+        nIsoLevelsZ = 13
+ 
+  ----- done assigning dimensions from Registry.xml -----
+ 
+ 
+ min/max of meshScalingDel2 = 1.00000 1.00000
+ min/max of meshScalingDel4 = 1.00000 1.00000
+ 
+ Begin timestep 2010-10-23_00:00:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.15221 1.20006
+ global min, max u -89.1803 89.2348
+  Timing for integration step: 1.06114 s
+ 
+ Begin timestep 2010-10-23_00:06:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.58674 0.978922
+ global min, max u -96.8845 89.1512
+  Timing for integration step: 1.05468 s
+ 
+ Begin timestep 2010-10-23_00:12:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.71366 0.663158
+ global min, max u -102.033 91.9065
+  Timing for integration step: 1.05685 s
+ 
+ Begin timestep 2010-10-23_00:18:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.57913 0.590860
+ global min, max u -89.6595 101.575
+  Timing for integration step: 1.05688 s
+ 
+ Begin timestep 2010-10-23_00:24:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.55077 0.547988
+ global min, max u -89.3237 96.1490
+  Timing for integration step: 1.06943 s
+ 
+ Begin timestep 2010-10-23_00:30:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.54174 0.487703
+ global min, max u -89.1400 93.3754
+  Timing for integration step: 1.05539 s
+ 
+ Begin timestep 2010-10-23_00:36:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.51400 0.431645
+ global min, max u -88.9330 90.8665
+  Timing for integration step: 1.05960 s
+ 
+ Begin timestep 2010-10-23_00:42:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.47334 0.398035
+ global min, max u -88.7086 89.8717
+  Timing for integration step: 1.05584 s
+ 
+ Begin timestep 2010-10-23_00:48:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.42366 0.409874
+ global min, max u -89.0552 89.6703
+  Timing for integration step: 1.05487 s
+ 
+ Begin timestep 2010-10-23_00:54:00
+  split dynamics-transport integration 3
+ 
+ global min, max w -1.36798 0.419533
+ global min, max u -89.3859 89.6918
+  Timing for integration step: 1.05586 s
+ 
+ ********************************************************
+    Finished running the atmosphere core
+ ********************************************************
+ 
+ 
+  Timer information:
+     Globals are computed across all threads and processors
+ 
+  Columns:
+     total time: Global max of accumulated time spent in timer
+     calls: Total number of times this timer was started / stopped.
+     min: Global min of time spent in a single start / stop
+     max: Global max of time spent in a single start / stop
+     avg: Global max of average time spent in a single start / stop
+     pct_tot: Percent of the timer at level 1
+     pct_par: Percent of the parent timer (one level up)
+     par_eff: Parallel efficiency, global average total time / global max total time
+ 
+ 
+    timer_name                                            total       calls        min            max            avg      pct_tot   pct_par     par_eff
+  1 total time                                          38.42768         1       38.42395       38.42768       38.42597   100.00       0.00       1.00
+  2  initialize                                         27.78007         1       27.77629       27.78007       27.77822    72.29      72.29       1.00
+  2  time integration                                   10.58361        10        1.05390        1.06948        1.05791    27.54      27.54       1.00
+  3   atm_rk_integration_setup                           0.08699        10        0.00697        0.01591        0.00778     0.23       0.82       0.89
+  3   atm_compute_moist_coefficients                     0.05107        10        0.00401        0.00596        0.00466     0.13       0.48       0.91
+  3   atm_compute_vert_imp_coefs                         0.19006        30        0.00314        0.00656        0.00613     0.49       1.80       0.97
+  3   atm_compute_dyn_tend                               3.55226        90        0.02741        0.05774        0.03737     9.24      33.56       0.95
+  3   small_step_prep                                    0.35634        90        0.00138        0.00506        0.00376     0.93       3.37       0.95
+  3   atm_advance_acoustic_step                          1.30132       120        0.00767        0.01498        0.01051     3.39      12.30       0.97
+  3   atm_divergence_damping_3d                          0.13208       120        0.00050        0.00164        0.00092     0.34       1.25       0.84
+  3   atm_recover_large_step_variables                   1.68000        90        0.01384        0.02795        0.01830     4.37      15.87       0.98
+  3   atm_compute_solve_diagnostics                      1.93205        90        0.01398        0.02563        0.02049     5.03      18.26       0.95
+  3   atm_rk_dynamics_substep_finish                     0.24644        30        0.00090        0.01696        0.00783     0.64       2.33       0.95
+  3   atm_advance_scalars                                0.33402        20        0.01609        0.01956        0.01645     0.87       3.16       0.98
+  3   atm_advance_scalars_mono                           0.25380        10        0.02070        0.02667        0.02453     0.66       2.40       0.97
+  3   atm_rk_reconstruct                                 0.03400        10        0.00275        0.00507        0.00323     0.09       0.32       0.95
+  3   atm_rk_summary                                     0.04237        10        0.00100        0.01612        0.00355     0.11       0.40       0.84
+ 
+ -----------------------------------------
+ Total log messages printed:
+    Output messages =                  345
+    Warning messages =                   0
+    Error messages =                     0
+    Critical error messages =            0
+ -----------------------------------------
+ Logging complete.  Closing file at 2019/03/26 16:16:55
