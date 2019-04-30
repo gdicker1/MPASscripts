@@ -4,7 +4,7 @@
 import os
 import string
 import argparse
-from subprocess import call, Popen, wait
+from subprocess import call
 from time import sleep
 
 # Global lists
@@ -51,22 +51,22 @@ def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, pat
     return newFile
 
 
-def launchJob(fName, path):
+def launchJob(fName, path, location):
     ''' Use subprocess.call and qsub to launch a job
     '''
+    jobSub = ''
+    if location == 'WSC':
+        jobSub = 'bsub'
+    elif location == 'cheyenne':
+        jobSub = 'qsub'
+    elif location == 'casper':
+        jobSub = 'sbatch'
+    else:
+        return
     currDir = os.getcwd()
     os.chdir(path)  # Go into benchmark folder for given resolution
     call(['chmod', '755', fName])  # Ensure the script is executable
-    print "Launching interactive shell"
-    proc = Popen(['bsub', '-nnodes', '1', '-Is', '-W', '60', '-q', 'excl_int', '$SHELL', universal_newlines=True])
-    proc.wait(30)
-    # sleep(20)  # Wait because the interactive shell takes a minute to launch
-    print "Interactive shell launched, submitting job"
-    with open(fName) as myinput:
-        call(['bsub'], stdin=myinput)  # Launch job
-    print "Job submitted"
-    #call(['exit'])  # Close the interactive shell
-    print "Interactive shell closed"
+    call([jobSub, fName])  # Launch job
     os.chdir(currDir)  # Go back to main benchmark folder
 
 
@@ -74,6 +74,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', help='whether to do a single run, weak scaling, or strong scaling', type=str,
                         default='single')
+    parser.add_argument('location', help='which cluster this is running on {WSC, cheyenne, casper}', type=str,
+                        default='WSC')
     parser.add_argument('-n', '--nnodes', help='number of resources (nodes) to run on', type=int,
                         default=1)
     parser.add_argument('-t', '--tasks_per_rs', help='number of MPI ranks/resource(node)', type=int,
@@ -96,14 +98,22 @@ if __name__ == '__main__':
     outFile = argDict['outfile']
     iFile = argDict['infile']
     mode = argDict['mode']
+    location = argDict['location'].lower()
     cpurs = 7*mpiranks
     gpurs = mpiranks/nodes
 
     # Validate and/or update command line args
+    if mode not in ('single', 'weak', 'strong'):
+        print("error in defining mode choose one of \'single\', \'weak\', or \'strong\'")
+        raise SystemExit
+    if location not in ('wsc', 'cheyenne', 'casper'):
+        print(
+            "error in defining location choose one of \'wsc\', \'cheyenne\', or \'casper\'")
+        raise SystemExit
     if 'k' not in res:  # Ensure resolution has k with it if not given
         res += 'k'
-    if mode not in ('single', 'weak', 'strong'):
-        print("error in defining mode choose one of 'single', 'weak', or 'strong'")
+    if res not in resFolders:
+        print("error: resolution given doesn't have corresponding folder")
         raise SystemExit
 
     if mode == 'single':
@@ -113,7 +123,7 @@ if __name__ == '__main__':
             raise SystemExit
         fName = replaceAndMakeNewFile(
             iFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile)
-        launchJob(fName, path)
+        launchJob(fName, path, location)
 
     elif mode == 'weak':
         # Weak scaling increase number of nodes and increase resolution
