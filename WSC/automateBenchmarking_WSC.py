@@ -12,6 +12,12 @@ replaceTokens = ['@HOURS', '@OUTFILE', '@PARPATH', '@PATH',
                  '@NNODES', '@MPIPROCS', '@CPURS', '@GPURS']
 # Used to create paths for weak/strong scalings
 resFolders = ['120k', '60k', '30k', '15k', '10k']
+''' 40k dataset == 120k res 
+    163k dataset == 60k res
+    655k dataset == 30k res
+    2621k dataset == 15k res
+    5898k dataset == 10k res
+'''
 
 # TODO: Add functions to parse outputs
 
