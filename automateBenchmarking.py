@@ -81,6 +81,7 @@ def launchJob(fName, path, location):
         return
     currDir = os.getcwd()
     os.chdir(path)  # Go into benchmark folder for given resolution
+    # print("jumped to directory {:s}".format(os.getcwd()))
     call(['chmod', '755', fName])  # Ensure the script is executable
     call([jobSub, fName])  # Launch job
     os.chdir(currDir)  # Go back to main benchmark folder
@@ -110,7 +111,7 @@ if __name__ == '__main__':
     argDict = vars(parser.parse_args())
     nodes = argDict['nnodes']
     mpiranks = argDict['tasks_per_rs']
-    resPath = argDict['resPath']
+    resPath = argDict['respath']
     res = argDict['resolution']
     hours = argDict['walltime']
     outFile = argDict['outfile']
@@ -147,10 +148,13 @@ if __name__ == '__main__':
             iFile = 'execute_CHEYENNE.template'
         elif location == 'casper':
             iFile = 'execute_CASPER.template'
-        for i in range(weakNodes):
+        # print("Weak scaling location:{0:s} inFile:{1:s}".format(location, iFile))
+        for i in range(len(weakNodes)):
             resPath = os.path.join(os.getcwd(), 'benchmark'+weakRes[i])
+            # print("resPath:{:s}".format(resPath))
             fName = replaceAndMakeNewFile(
                 iFile, weakNodes[i], weakMPI[i], weakCPUs[i], weakGPUs[i], weakRes[i], 4, resPath)
+            # print("fName:{:s}".format(fName))
             launchJob(fName, resPath, location)
 
     elif mode == 'strong':
@@ -161,7 +165,7 @@ if __name__ == '__main__':
             iFile = 'execute_CHEYENNE.template'
         elif location == 'casper':
             iFile = 'execute_CASPER.template'
-        for i in range(strongNodes):
+        for i in range(len(strongNodes)):
             resPath = os.path.join(os.getcwd(), 'benchmark'+strongRes[i])
             fName = replaceAndMakeNewFile(
                 iFile, strongNodes[i], strongMPI[i], strongCPUs[i], strongGPUs[i], strongRes[i], 4, resPath)
