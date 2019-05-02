@@ -20,15 +20,17 @@ resFolders = ['120k', '60k', '30k', '15k', '10k']
 '''
 # Other tuples to help make strong/weak scripts
 #  These tuples should be long enough to define the number of runs we need
-weakNodes = ()
-weakMPI = ()
-weakCPUs = ()
-weakGPUs = ()
+weakNodes = (1, 1, 4, 16, 1, 2, 8, 1)
+weakGPUs = weakMPI = (1, 4, 4, 4, 2, 4, 4, 2)
+weakCPUs = (7, 28, 28, 28, 14, 28, 28, 7)
+weakRes = ('120k', '60k', '30k', '15k', '60k', '30k', '15k', '60k')
 
-strongNodes = ()
-strongMPI = ()
-strongCPUs = ()
-strongGPUs = ()
+strongNodes = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+strongGPUs = strongMPI = (6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
+strongCPUs = (42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42)
+strongRes = ('15k', '15k', '15k', '15k', '15k', '15k', '15k', '15k',
+             '15k', '15k', '15k', '15k', '15k', '15k', '15k', '15k')
+
 
 def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile=''):
     ''' Find the replace tokens in inFile and replace them with arguments to this function
@@ -94,7 +96,8 @@ if __name__ == '__main__':
                         default=1)
     parser.add_argument('-t', '--tasks_per_rs', help='number of MPI ranks/resource(node)', type=int,
                         default=1)
-    parser.add_argument('-rp', '--respath', help='path to the resolution folder for a single run', type=str)
+    parser.add_argument(
+        '-rp', '--respath', help='path to the resolution folder for a single run', type=str)
     parser.add_argument('-r', '--resolution', help='resolution of the job, used for outfile name creation if not specified', type=str,
                         default='30')
     parser.add_argument('-w', '--walltime', help='number of hours to run job for', type=int,
@@ -103,7 +106,6 @@ if __name__ == '__main__':
                         default='')
     parser.add_argument('-i', '--infile', help='file to modify, needs to have replace tokens', type=str,
                         default='execute_WSC.template')
-    
 
     argDict = vars(parser.parse_args())
     nodes = argDict['nnodes']
@@ -128,12 +130,11 @@ if __name__ == '__main__':
         raise SystemExit
     if 'k' not in res:  # Ensure resolution has k with it if not given
         res += 'k'
-    
 
     if mode == 'single':
         if not os.path.exists(resPath):
-          print("error resolution path {:s} doesn't exist".format(resPath))
-          raise SystemExit
+            print("error resolution path {:s} doesn't exist".format(resPath))
+            raise SystemExit
         fName = replaceAndMakeNewFile(
             iFile, nodes, mpiranks, cpurs, gpurs, res, hours, resPath, outFile)
         launchJob(fName, resPath, location)
