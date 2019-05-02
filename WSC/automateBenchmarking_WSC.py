@@ -7,13 +7,21 @@ import argparse
 from subprocess import call
 from time import sleep
 
-# Global lists
-replaceTokens = ['@HOURS', '@OUTFILE', '@PARPATH', '@PATH',
-                 '@NNODES', '@MPIPROCS', '@CPURS', '@GPURS']
+# Common lists
+replaceTokens = ('@HOURS', '@OUTFILE', '@PARPATH', '@PATH',
+                 '@NNODES', '@MPIPROCS', '@CPURS', '@GPURS')
 # Used to create paths for weak/strong scalings
-resFolders = ['120k', '60k', '30k', '15k', '10k']
-
-# TODO: Add functions to parse outputs
+resFolders = ('120k', '60k', '30k', '15k', '10k')
+# Other tuples to help make strong/weak scripts
+#  These tuples should be long enough to define the number of runs we need
+weakNodes = ()
+strongNodes = ()
+weakMPI = ()
+strongMPI = ()
+weakCPUs = ()
+strongCPUs = ()
+weakGPUs = ()
+strongGPUs = ()
 
 
 def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile=''):
@@ -127,9 +135,11 @@ if __name__ == '__main__':
     elif mode == 'weak':
         # Weak scaling increase number of nodes and increase resolution
         #  TODO: Implement the loop for weak scaling
+        # TODO: fill in the weak tuples at top of script with needed variables
         pass
 
     elif mode == 'strong':
         # Strong scaling keep resolution constant increase number of nodes
         #  TODO: Implement the loop for strong scaling
+        # TODO: Fill in the strong tuples at top of script with needed variables
         pass
