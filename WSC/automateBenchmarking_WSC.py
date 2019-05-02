@@ -7,9 +7,9 @@ import argparse
 from subprocess import call
 from time import sleep
 
-# Global lists
-replaceTokens = ['@HOURS', '@OUTFILE', '@PARPATH', '@PATH',
-                 '@NNODES', '@MPIPROCS', '@CPURS', '@GPURS']
+# Common lists
+replaceTokens = ('@HOURS', '@OUTFILE', '@PARPATH', '@PATH',
+                 '@NNODES', '@MPIPROCS', '@CPURS', '@GPURS')
 # Used to create paths for weak/strong scalings
 resFolders = ['120k', '60k', '30k', '15k', '10k']
 ''' 40k dataset == 120k res 
@@ -18,9 +18,17 @@ resFolders = ['120k', '60k', '30k', '15k', '10k']
     2621k dataset == 15k res
     5898k dataset == 10k res
 '''
+# Other tuples to help make strong/weak scripts
+#  These tuples should be long enough to define the number of runs we need
+weakNodes = ()
+weakMPI = ()
+weakCPUs = ()
+weakGPUs = ()
 
-# TODO: Add functions to parse outputs
-
+strongNodes = ()
+strongMPI = ()
+strongCPUs = ()
+strongGPUs = ()
 
 def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile=''):
     ''' Find the replace tokens in inFile and replace them with arguments to this function
@@ -86,7 +94,8 @@ if __name__ == '__main__':
                         default=1)
     parser.add_argument('-t', '--tasks_per_rs', help='number of MPI ranks/resource(node)', type=int,
                         default=1)
-    parser.add_argument('-r', '--resolution', help='resolution folder to run job in', type=str,
+    parser.add_argument('-rp', '--respath', help='path to the resolution folder for a single run', type=str)
+    parser.add_argument('-r', '--resolution', help='resolution of the job, used for outfile name creation if not specified', type=str,
                         default='30')
     parser.add_argument('-w', '--walltime', help='number of hours to run job for', type=int,
                         default=3)
@@ -94,11 +103,12 @@ if __name__ == '__main__':
                         default='')
     parser.add_argument('-i', '--infile', help='file to modify, needs to have replace tokens', type=str,
                         default='execute_WSC.template')
-    # TODO: (optional...?) add a archeticture argument to state if on Cheyenne, Casper, PSG, Witherspoon, Comet affects cores per node
+    
 
     argDict = vars(parser.parse_args())
     nodes = argDict['nnodes']
     mpiranks = argDict['tasks_per_rs']
+    resPath = argDict['resPath']
     res = argDict['resolution']
     hours = argDict['walltime']
     outFile = argDict['outfile']
@@ -118,25 +128,24 @@ if __name__ == '__main__':
         raise SystemExit
     if 'k' not in res:  # Ensure resolution has k with it if not given
         res += 'k'
-    if res not in resFolders:
-        print("error: resolution given doesn't have corresponding folder")
-        raise SystemExit
+    
 
     if mode == 'single':
-        path = os.path.join(os.getcwd(), 'benchmark{:s}'.format(res))
-        if not os.path.exists(path):
-            print("resolution benchmarking directory doesn't exist")
-            raise SystemExit
+        if not os.path.exists(resPath):
+          print("error resolution path {:s} doesn't exist".format(resPath))
+          raise SystemExit
         fName = replaceAndMakeNewFile(
-            iFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile)
-        launchJob(fName, path, location)
+            iFile, nodes, mpiranks, cpurs, gpurs, res, hours, resPath, outFile)
+        launchJob(fName, resPath, location)
 
     elif mode == 'weak':
         # Weak scaling increase number of nodes and increase resolution
         #  TODO: Implement the loop for weak scaling
+        # TODO: fill in the weak tuples at top of script with needed variables
         pass
 
     elif mode == 'strong':
         # Strong scaling keep resolution constant increase number of nodes
         #  TODO: Implement the loop for strong scaling
+        # TODO: Fill in the strong tuples at top of script with needed variables
         pass
