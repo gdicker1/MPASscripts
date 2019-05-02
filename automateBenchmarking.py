@@ -141,17 +141,28 @@ if __name__ == '__main__':
 
     elif mode == 'weak':
         # Weak scaling increase number of nodes and increase resolution
+        if location == 'wsc':
+            iFile = 'execute_WSC.template'
+        elif location == 'cheyenne':
+            iFile = 'execute_CHEYENNE.template'
+        elif location == 'casper':
+            iFile = 'execute_CASPER.template'
         for i in range(weakNodes):
-            resPath = os.path.join(os.getcwd(),'benchmark'+weakRes[i])
+            resPath = os.path.join(os.getcwd(), 'benchmark'+weakRes[i])
             fName = replaceAndMakeNewFile(
-            iFile, weakNodes[i], weakMPI[i], weakCPUs[i], weakGPUs[i], weakRes[i], 4, resPath)
+                iFile, weakNodes[i], weakMPI[i], weakCPUs[i], weakGPUs[i], weakRes[i], 4, resPath)
             launchJob(fName, resPath, location)
 
     elif mode == 'strong':
         # Strong scaling keep resolution constant increase number of nodes
+        if location == 'wsc':
+            iFile = 'execute_WSC.template'
+        elif location == 'cheyenne':
+            iFile = 'execute_CHEYENNE.template'
+        elif location == 'casper':
+            iFile = 'execute_CASPER.template'
         for i in range(strongNodes):
-            resPath = os.path.join(os.getcwd(),'benchmark'+strongRes[i])
+            resPath = os.path.join(os.getcwd(), 'benchmark'+strongRes[i])
             fName = replaceAndMakeNewFile(
-            iFile, strongNodes[i], strongMPI[i], strongCPUs[i], strongGPUs[i], strongRes[i], 4, resPath)
+                iFile, strongNodes[i], strongMPI[i], strongCPUs[i], strongGPUs[i], strongRes[i], 4, resPath)
             launchJob(fName, resPath, location)
-
