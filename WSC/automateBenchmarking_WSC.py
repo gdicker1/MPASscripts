@@ -15,14 +15,14 @@ resFolders = ('120k', '60k', '30k', '15k', '10k')
 # Other tuples to help make strong/weak scripts
 #  These tuples should be long enough to define the number of runs we need
 weakNodes = ()
-strongNodes = ()
 weakMPI = ()
-strongMPI = ()
 weakCPUs = ()
-strongCPUs = ()
 weakGPUs = ()
-strongGPUs = ()
 
+strongNodes = ()
+strongMPI = ()
+strongCPUs = ()
+strongGPUs = ()
 
 def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, path, outFile=''):
     ''' Find the replace tokens in inFile and replace them with arguments to this function
