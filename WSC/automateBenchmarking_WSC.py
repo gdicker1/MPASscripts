@@ -141,12 +141,17 @@ if __name__ == '__main__':
 
     elif mode == 'weak':
         # Weak scaling increase number of nodes and increase resolution
-        #  TODO: Implement the loop for weak scaling
-        # TODO: fill in the weak tuples at top of script with needed variables
-        pass
+        for i in range(weakNodes):
+            resPath = os.path.join(os.getcwd(),'benchmark'+weakRes[i])
+            fName = replaceAndMakeNewFile(
+            iFile, weakNodes[i], weakMPI[i], weakCPUs[i], weakGPUs[i], weakRes[i], 4, resPath)
+            launchJob(fName, resPath, location)
 
     elif mode == 'strong':
         # Strong scaling keep resolution constant increase number of nodes
-        #  TODO: Implement the loop for strong scaling
-        # TODO: Fill in the strong tuples at top of script with needed variables
-        pass
+        for i in range(strongNodes):
+            resPath = os.path.join(os.getcwd(),'benchmark'+strongRes[i])
+            fName = replaceAndMakeNewFile(
+            iFile, strongNodes[i], strongMPI[i], strongCPUs[i], strongGPUs[i], strongRes[i], 4, resPath)
+            launchJob(fName, resPath, location)
+
