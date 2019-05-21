@@ -63,7 +63,7 @@ def replaceAndMakeNewFile(inFile, nodes, mpiranks, cpurs, gpurs, res, hours, pat
                 theLine = theLine.replace(replaceTokens[7],
                                           str(gpurs))
                 fileOut.write(theLine)
-
+    print("file created: {}".format(newFile)
     return newFile
 
 
@@ -71,18 +71,23 @@ def launchJob(fName, path, location):
     ''' Use subprocess.call and qsub to launch a job
     '''
     jobSub = ''
-    if location == 'WSC':
+    if location == 'wsc':
         jobSub = 'bsub'
     elif location == 'cheyenne':
         jobSub = 'qsub'
     elif location == 'casper':
         jobSub = 'sbatch'
     else:
+        print("invalid location for launchJob")
         return
     currDir = os.getcwd()
+    if not os.path.exists(path):
+        print("path {} doesn't exist".format(path))
+        raise SystemExit
     os.chdir(path)  # Go into benchmark folder for given resolution
     # print("jumped to directory {:s}".format(os.getcwd()))
     call(['chmod', '755', fName])  # Ensure the script is executable
+    print("call([{}, {}])".format(jobSub, fName))
     call([jobSub, fName])  # Launch job
     os.chdir(currDir)  # Go back to main benchmark folder
 
