@@ -2,7 +2,7 @@
 ##  this format for each timestep: 1;2010-10-23_00:00:00;0.335;FL
 ## Also prints summary to console
 ## 
-## Example use: python DynamicsSteps.py log.atmosphere.role00.0000.out
+## Example use: python DynamicsSteps.py -nnodes 72 log.atmosphere.role00.0000.out
 ## 
 ## Based on time parsing script written by Dylan Dickerson (UWYO)
 ## Modified by Suzanne Piver and Henry O'Meara (UWYO), and Cena Miller (NCAR) 
@@ -156,6 +156,18 @@ print("\tStd Dev: " + str(dynRadSDev))
 print("\nIntegration Steps WITHOUT Radiation: " + str(len(execTimesNoInit)-len(radSimTimes)))
 print("\tAvg Integration Time (sec): " + str(dynNonRadAvg))
 print("\tStd Dev: " + str(dynNonRadSDev))
+print("\n\n")
+f.close()
+f_summary.close()
+with open(args.fileName[0],"r") as infile, open(summFile+'.summary', 'a') as outfile:
+    copy = False
+    for line in infile:
+        if line.strip() == "Timer information:":
+            copy = True
+        if copy:
+            outfile.write(line)
+        if line.strip() == "Critical error messages":
+            copy = False
 
 f_csv.close()
 f_summary.close()
