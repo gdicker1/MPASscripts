@@ -81,8 +81,9 @@ class Tee(object):
 f = open(args.fileName[0],"r")
 summFile = args.fileName[0].strip(".out")
 
-f_csv = open(summFile+'.csv', 'a')
-f_summary = open(summFile+'.summary', 'w')
+f_csv = open(summFile+'.00.csv', 'a')
+f_csvRad = open(summFile+'.00.JustRad.csv','a')
+f_summary = open(summFile+'.00.summary', 'w')
 sys.stdout = Tee(sys.stdout, f_summary)
 nodes = args.nnodes
 text = f.read()
@@ -119,6 +120,7 @@ while(i < len(simulationTimes)):
         execTimesNoInit.append(executionTimes[i])
         if (radiationBools[i]== 'T'):
             radSimTimes.append(simulationTimes[i])
+            f_csvRad.write('%d;%s;%f\n' %(i, simulationTimes[i], executionTimes[i])) 
             dynRadTimes.append(executionTimes[i])
         else:
             dynNonRadTimes.append(executionTimes[i])
@@ -159,7 +161,7 @@ print("\tStd Dev: " + str(dynNonRadSDev))
 print("\n\n")
 f.close()
 f_summary.close()
-with open(args.fileName[0],"r") as infile, open(summFile+'.summary', 'a') as outfile:
+with open(args.fileName[0],"r") as infile, open(summFile+'.00.summary', 'a') as outfile:
     copy = False
     for line in infile:
         if line.strip() == "Timer information:":
