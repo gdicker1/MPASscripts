@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PATH=/glade/u/apps/dav/opt/ncl/6.6.2/intel/18.0.5/bin:/usr/lib64/qt-3.3/bin:/glade/u/apps/dav/opt/netcdf/4.7.3/intel/18.0.5/bin:/glade/u/apps/dav/opt/ncarcompilers/0.5.0/intel/18.0.5/mpi:/glade/u/apps/dav/opt/openmpi/3.1.4/intel/18.0.5/bin:/glade/u/apps/dav/opt/ncarcompilers/0.5.0/intel/18.0.5:/glade/u/apps/opt/intel/2018u4/vtune_amplifier/bin64:/glade/u/apps/opt/intel/2018u4/inspector/bin64:/glade/u/apps/opt/intel/2018u4/advisor/bin64:/glade/u/apps/opt/intel/2018u4/compilers_and_libraries/linux/bin/intel64:/glade/u/apps/opt/globus-utils:/glade/u/apps/dav/opt/usr/bin:/glade/u/apps/dav/opt/lmod/lmod/bin:/glade/u/apps/dav/opt/lua/5.3.4/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lpp/mmfs/bin:/opt/ibutils/bin:/sbin:/bin:/ncar/opt/hpss/hpss/bin:/glade/scratch/cmille73/TWC_Branch/ColorMaps
+export NCARG_COLORMAPS=/glade/scratch/cmille73/TWC_Branch/ColorMaps:$NCARG_ROOT/lib/ncarg/colormaps
