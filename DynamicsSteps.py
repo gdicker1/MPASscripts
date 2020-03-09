@@ -13,7 +13,7 @@ import sys
 import datetime
 
 parser = argparse.ArgumentParser(description="Evaluate integration times from a dynamics output file")
-parser.add_argument('-n', '--nnodes', help='number of resources (nodes) job ran on', type=int)
+parser.add_argument('-n', '--nnodes',default=1, help='number of resources (nodes) job ran on', type=int)
 parser.add_argument('fileName', nargs=1, help="Filename of the output file. Example: log.atmosphere.role00.0000.out")
 # For debugging
 # args = parser.parse_args(['.\log.atmosphere.0000.out'])
