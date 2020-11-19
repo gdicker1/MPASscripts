@@ -10,7 +10,7 @@ args = parser.parse_args()
 # Function to extract the time from the lines formatted like:
 #   Timing for integration step: 1.05685 s
 def extractTime(line):
-    result = re.findall("\d+\.\d+", line)
+    result = re.findall("-?[\d.]+(?:[Ee]-?\d+)?", line)
     return float(result[0])
 
 def mean(arr):
